@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/orders_screen.dart';
 import 'package:shop_app/screens/products_overview_screen.dart';
+import 'package:shop_app/screens/user_products_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   Widget buildListTile(String title, IconData icon, Function() handler ) {
@@ -51,7 +52,7 @@ class MainDrawer extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed(ProductsOverviewScreen.routeName);
             },
           ),
-          Divider(thickness: 2, color: Colors.black,),
+          Divider(thickness: 1, color: Colors.black,),
           buildListTile(
             'Orders',
             Icons.payment,
@@ -59,6 +60,15 @@ class MainDrawer extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed(OrdersScreen.routeName);
             },
           ),
+          Divider(thickness: 1, color: Colors.black,),
+          buildListTile(
+            'Manage Products',
+            Icons.edit,
+                () {
+              Navigator.of(context).pushReplacementNamed(UserProductsScreen.routeName);
+            },
+          ),
+          Divider(thickness: 1, color: Colors.black,),
         ],
       ),
     );

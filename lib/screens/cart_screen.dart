@@ -41,8 +41,19 @@ class CartScreen extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Provider.of<Orders>(context, listen: false).addOrder(cart.items.values.toList(), cart.totalAmount);
+                      Provider.of<Orders>(context, listen: false).addOrder(
+                          cart.items.values.toList(), cart.totalAmount);
                       cart.clear();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Added to orders',
+                            textAlign: TextAlign.center,
+                          ),
+                          backgroundColor: Theme.of(context).accentColor,
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
                     },
                     child: Text('ORDER NOW'),
                   ),
@@ -51,7 +62,7 @@ class CartScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10, 
+            height: 10,
           ),
           Expanded(
             child: ListView.builder(
