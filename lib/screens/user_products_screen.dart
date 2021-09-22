@@ -30,7 +30,10 @@ class UserProductsScreen extends StatelessWidget {
           itemBuilder: (_, i) => Card(
             shadowColor: Theme.of(context).accentColor,
             child: UserProductItem(
-                productData.items[i].title, productData.items[i].imageUrl),
+              productData.items[i].id!,
+              productData.items[i].title,
+              productData.items[i].imageUrl,
+            ),
           ),
         ),
       ),
